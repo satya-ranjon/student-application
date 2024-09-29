@@ -1,0 +1,367 @@
+{% extends "layout/social-layout.html" %} {% block style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('boot-static.static', filename='css/profile.css') }}" />
+{% endblock %} {% block content %}
+
+<main>
+  <div class="container">
+    <div class="row g-3">
+      <!-- ============ Start Body ============ -->
+      <div class="container-xxl flex-grow-1 container-p-y mt-3">
+        <!-- ============ Start Profile Header ============ -->
+        <div class="card rounded-0 br-card mb-3">
+          <div class="card-header position-relative min-vh-25 mb-8">
+            <!-- ============ Start Cover Photo ============ -->
+            <div class="cover-image">
+              <img
+                src="{{ url_for('boot-static.static', filename='image/cover-photo.png') }}"
+                alt="cover photo"
+                class="image-holder rounded-3 rounded-bottom-0"
+                id="cover-photo-img" />
+
+              <!--======== Cover Photo Change========-->
+              <div>
+                <input
+                  class="d-none"
+                  id="upload-cover-image"
+                  type="file"
+                  accept=".jpg, .jpeg, .png" />
+                <label class="cover-image-file-input" for="upload-cover-image">
+                  <span class="fas fa-camera me-2"></span>
+                  <span>Change cover photo</span>
+                </label>
+              </div>
+
+              <!--======== drag to reposition ========-->
+              <div class="drag-reposition">
+                <i class="fas fa-arrows-alt me-2"></i>
+                <span>Drag to reposition</span>
+              </div>
+              <div class="change-profile-img d-flex">
+                <button id="upload-button" class="d-flex upload-control btn">
+                  <i class="fas fa-upload"></i> <span>Save</span>
+                </button>
+                <button id="close-button" class="d-flex upload-control btn">
+                  <i class="fas fa-window-close"></i> <span>Close</span>
+                </button>
+              </div>
+            </div>
+            <!-- ============ End of Cover Photo ============ -->
+
+            <!-- ============ Start Profile Photo ============ -->
+            <div class="d-flex profile-absolute">
+              <div
+                class="avatar avatar-5xl shadow-sm rounded-circle flex-grow-1">
+                <div
+                  class="h-100 w-100 rounded-circle overflow-hidden position-relative">
+                  <img
+                    src="{{ url_for('boot-static.static', filename='image/default-img.jpg') }}"
+                    alt="profile photo" />
+                  <input
+                    class="d-none"
+                    id="profile-image"
+                    type="file"
+                    accept=".jpg, .jpeg, .png" />
+                  <label
+                    class="mb-0 overlay-icon d-flex flex-center"
+                    for="profile-image">
+                    <span class="bg-holder overlay overlay-0"></span>
+                    <span class="z-index-1 text-white text-center">
+                      <span class="fas fa-camera"></span>
+                      <span class="d-block">Update</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <!-- ============ End of Profile Photo ============ -->
+
+              <!-- ============ Profile UserName ============ -->
+              <div class="d-flex align-items-end">
+                <div class="mb-1 fw-bold profile-username">User Name</div>
+              </div>
+            </div>
+            <!-- ============ End of Profile UserName ============ -->
+          </div>
+        </div>
+        <!-- ============ Start Profile Content ============ -->
+        <div class="row g-0">
+          <div class="col-lg-8 pe-lg-2">
+            <!-- Profile Details -->
+            <div class="card rounded-0 br-card mb-3">
+              <div
+                class="card-header d-flex justify-content-between align-items-center">
+                <div class="mb-0">Profile</div>
+                <a href="#" class="cursor-pointer"> Edit </a>
+              </div>
+              <div class="card-body">
+                <div class="row form-details gy-3">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <div class="form-control fw-bold h-auto min-h-details">
+                        First Name
+                      </div>
+                      <label class="details-label-fs">First Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <div class="form-control fw-bold h-auto min-h-details">
+                        Last Name
+                      </div>
+                      <label class="details-label-fs">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <div class="form-control fw-bold h-auto min-h-details">
+                        Web Frontend Developer
+                      </div>
+                      <label class="details-label-fs">Designation</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <div class="form-control fw-bold h-auto min-h-details">
+                        hello@problemfighter.com
+                      </div>
+                      <label class="details-label-fs">Email</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <div class="form-control fw-bold h-auto min-h-details">
+                        Username
+                      </div>
+                      <label class="details-label-fs">Username</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <div class="form-control fw-bold h-auto min-h-details">
+                        01756702340
+                      </div>
+                      <label class="details-label-fs">Mobile</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--  Edit Profile  -->
+            <div class="card rounded-0 br-card mb-3">
+              <div class="card-header">
+                <div class="mb-0">Edit Profile</div>
+              </div>
+              <div class="card-body">
+                <form class="needs-validation" novalidate>
+                  <div class="row">
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">
+                        <span class="text-danger pe-1 fw-bolder">*</span>Your
+                        Name</label
+                      >
+                      <input
+                        type="text"
+                        required
+                        name="firstName"
+                        class="form-control" />
+                      <div class="invalid-feedback">Please enter your name</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Last Name</label>
+                      <input type="text" name="lastName" class="form-control" />
+                      <div class="invalid-feedback">
+                        Please enter your last name
+                      </div>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">
+                        <span class="text-danger pe-1 fw-bolder">*</span
+                        >Designation</label
+                      >
+                      <input
+                        type="text"
+                        required
+                        name="designation"
+                        class="form-control" />
+                      <div class="invalid-feedback">
+                        Please enter your Designation
+                      </div>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">
+                        <span class="text-danger pe-1 fw-bolder">*</span>Email
+                        Address</label
+                      >
+                      <input
+                        type="email"
+                        required
+                        name="email"
+                        class="form-control" />
+                      <div class="invalid-feedback">
+                        Please enter your email address
+                      </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Username</label>
+                      <input type="text" name="username" class="form-control" />
+                      <div class="invalid-feedback">
+                        Please enter your username
+                      </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Mobile Number</label>
+                      <input
+                        type="text"
+                        name="mobile"
+                        class="form-control"
+                        value="" />
+                      <div class="invalid-feedback">
+                        Please enter your mobile number
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <span class="float-end">
+                        <button type="submit" class="btn btn-primary">
+                          Update
+                        </button>
+                        <button class="btn btn-color-white ms-2" type="button">
+                          Cancel
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 ps-lg-2">
+            <div class="sticky-sidebar">
+              <!--   Profile Settings -->
+              <div class="card rounded-0 br-card mb-3">
+                <div class="card-header">
+                  <div class="mb-0">Profile Settings</div>
+                </div>
+                <div class="card-body">
+                  <form class="needs-validation" novalidate>
+                    <div class="mb-3">
+                      <label class="form-label">Language</label>
+                      <select class="form-select" required>
+                        <option disabled="true" selected>Language</option>
+                        <option value="ban">বাংলা</option>
+                        <option value="eng">English</option>
+                      </select>
+                      <div class="invalid-feedback">Please a Language</div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!--   Change Password -->
+              <div class="card rounded-0 br-card mb-3">
+                <div class="card-header">
+                  <div class="mb-0">Change Password</div>
+                </div>
+                <div class="card-body">
+                  <form class="needs-validation" novalidate>
+                    <div class="row">
+                      <div class="mb-3">
+                        <label class="form-label">
+                          <span class="text-danger pe-1 fw-bolder">*</span>
+                          Current Password
+                        </label>
+                        <div class="input-group password-modify-input-wrapper">
+                          <input
+                            type="password"
+                            required
+                            name="currentPassword"
+                            class="form-control" />
+                          <div
+                            class="input-group-text password-input-group-text">
+                            <button
+                              type="button"
+                              class="border-none bg-white password-icon-button">
+                              <i class="fa-regular fa-eye-slash"></i>
+                            </button>
+                          </div>
+                          <div class="invalid-feedback">
+                            Please enter your current password.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label">
+                          <span class="text-danger pe-1 fw-bolder">*</span>
+                          New Password
+                        </label>
+                        <div class="input-group password-modify-input-wrapper">
+                          <input
+                            type="password"
+                            required
+                            name="newPassword"
+                            class="form-control" />
+                          <div
+                            class="input-group-text password-input-group-text">
+                            <button
+                              type="button"
+                              class="border-none bg-white password-icon-button">
+                              <i class="fa-regular fa-eye-slash"></i>
+                            </button>
+                          </div>
+                          <div class="invalid-feedback">
+                            Please enter your new password.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label">
+                          <span class="text-danger pe-1 fw-bolder">*</span>
+                          Confirm Password
+                        </label>
+                        <div class="input-group password-modify-input-wrapper">
+                          <input
+                            type="password"
+                            required
+                            name="confirmPassword"
+                            class="form-control" />
+                          <div
+                            class="input-group-text password-input-group-text">
+                            <button
+                              type="button"
+                              class="border-none bg-white password-icon-button">
+                              <i class="fa-regular fa-eye-slash"></i>
+                            </button>
+                          </div>
+                          <div class="invalid-feedback">
+                            Please enter your new password again.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <button
+                          class="btn btn-primary d-block w-100"
+                          type="submit">
+                          Change Password
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============ End Profile Header ============ -->
+      </div>
+      <!-- ============ End Of Start Body ============ -->
+    </div>
+  </div>
+</main>
+
+{% endblock %}

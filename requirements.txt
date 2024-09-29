@@ -1,0 +1,41 @@
+apispec==6.3.0
+blinker==1.8.2
+# Editable install with no version control (boot==1.0.0)
+-e c:\users\k1598\desktop\bangla_fighter\project\student-application\application\boot
+click==8.1.7
+colorama==0.4.6
+distlib==0.3.8
+filelock==3.16.1
+Flask==3.0.0
+Flask-Cors==4.0.0
+Flask-SQLAlchemy==3.1.1
+gitdb==4.0.11
+GitPython==3.1.37
+greenlet==3.1.1
+itsdangerous==2.2.0
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+marshmallow==3.20.1
+marshmallow-sqlalchemy==1.1.0
+packaging==24.1
+platformdirs==4.3.6
+ppy-common==0.0.8
+ppy-file-text==0.0.7
+ppy-jsonyml==0.0.7
+pweb-cli==0.0.17
+pweb-form-rest==0.0.11
+pweb-orm==0.0.8
+pweb-ssr==0.0.8
+pwebb==0.0.15
+PyYAML==6.0.1
+setuptools==75.1.0
+smmap==5.0.1
+SQLAlchemy==2.0.35
+# Editable install with no version control (student-application==1.0.0)
+-e c:\users\k1598\desktop\bangla_fighter\project\student-application
+# Editable install with no version control (student-application-pweb-system==1.0.0)
+-e c:\users\k1598\desktop\bangla_fighter\project\student-application
+terminaltables==3.1.10
+typing_extensions==4.12.2
+virtualenv==20.26.6
+Werkzeug==3.0.4
