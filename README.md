@@ -1,4 +1,8 @@
-![Screenshot](https://i.ibb.co.com/nwS8LSj/Screenshot-21.png)
+![Screenshot1](https://i.ibb.co.com/ZWPdr05/Screenshot-25.png)
+
+![Screenshot2](https://i.ibb.co.com/kK94PVQ/Screenshot-24.png)
+
+![Screenshot3](https://i.ibb.co.com/wdG0hhJ/Screenshot-26.png)
 
 # Project Setup Guide
 
